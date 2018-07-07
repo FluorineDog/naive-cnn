@@ -13,31 +13,29 @@ FLAGS = None
 from tensorflow.examples.tutorials.mnist import input_data
 
 
-
 def main(*argv):
   data_dir = "/tmp/tensorflow/mnist/input_data"
   # load dataset
   mnist = input_data.read_data_sets(data_dir)
 
-  # import data as placeholder 
-  # batch_size * height * width * channels
-  # as bs*28*28*1
-  x = tf.placeholder(tf.float32, [None, 28, 28, 1])
-  # true label
-  y_ = tf.placeholder(tf.int64, [None])
-
-  dropout_rate = tf.placeholder(tf.float32)
-
   graph = tf.Graph()
   with graph.as_default():
-    y, loss, train_step = cnn.model(x, y_, dropout_rate, graph=graph)
+    # import data as placeholder
+    # batch_size * height * width * channels
+    # as bs*28*28*1
+    x = tf.placeholder(tf.float32, [None, 784])
+    # true label
+    y_ = tf.placeholder(tf.int64, [None])
+    dropout_rate = tf.placeholder(tf.float32)
+    y, loss, train_step = cnn.model(x, y_, dropout_rate)
 
   with tf.Session(graph=graph) as sess:
     # Train
     for _ in range(100):
       for _ in range(100):
         batch_xs, batch_ys = mnist.train.next_batch(100)
-        sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys, dropout_rate: 0.4})
+        sess.run(train_step, feed_dict={
+                 x: batch_xs, y_: batch_ys, dropout_rate: 0.4})
 
       # evaluate train model
       correct_prediction = tf.equal(tf.argmax(y, 1), y_)
@@ -62,10 +60,6 @@ def main(*argv):
     # ))
 
 
-
-
-
-
 # def run():
 #   parser = argparse.ArgumentParser()
 #   parser.add_argument(
@@ -80,5 +74,6 @@ def main(*argv):
 
 # if __name__ == '__main__':
 #   run()
+
 
 main()
