@@ -43,7 +43,7 @@ def network(raw_x, y_, dropout_rate):
   # to bs*1024
   dense_layer= tf.layers.dense(
     inputs=trans,
-    units=1024,
+    units=256,
     activation=tf.nn.relu,
   )
 

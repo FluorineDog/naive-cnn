@@ -32,50 +32,34 @@ def main(*argv):
   with tf.Session(graph=graph) as sess:
     init = tf.global_variables_initializer()
     sess.run(init)
+    correct_prediction = tf.equal(tf.argmax(y, 1), y_)
+    accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
     # Train
-    for _ in range(100):
-      for _ in range(100):
+    for step in range(30):
+      print("step", step)
+      for i in range(500):
         batch_xs, batch_ys = mnist.train.next_batch(100)
-        sess.run(train_step, feed_dict={
-                 x: batch_xs, y_: batch_ys, dropout_rate: 0.4})
+        opt, l = sess.run([train_step, loss], feed_dict={
+            x: batch_xs, y_: batch_ys, dropout_rate: 0.4})
+        if i == 499:
+          print("train acc & loss: ", sess.run(
+              [accuracy, loss], feed_dict={
+                  x: batch_xs,
+                  y_: batch_ys,
+                  dropout_rate: 1.0
+              }
+          ))
 
-      # evaluate train model
-      correct_prediction = tf.equal(tf.argmax(y, 1), y_)
-      accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-      print(sess.run(
+      tx, ty = mnist.test.next_batch(1000)
+      print("test acc & loss: ", sess.run(
           [accuracy, loss], feed_dict={
-              x: mnist.test.images,
-              y_: mnist.test.labels,
+              x: tx,
+              y_: ty,
               dropout_rate: 1.0
           }
       ))
-
-    # Test trained model
-    # correct_prediction = tf.equal(tf.argmax(y, 1), y_)
-    # accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-    # print(sess.run(
-    #     accuracy, feed_dict={
-    #         x: mnist.test.images,
-    #         y_: mnist.test.labels
-    #         dropout_rate: 1.0
-    #     }
-    # ))
-
-
-# def run():
-#   parser = argparse.ArgumentParser()
-#   parser.add_argument(
-#       '--data_dir',
-#       type=str,
-#       default='/tmp/tensorflow/mnist/input_data',
-#       help='Directory for storing input data')
-#   FLAGS, unparsed = parser.parse_known_args()
-#   FLAGS.dropout_rate = 0.4
-#   print(FLAGS)
-#   tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
-
-# if __name__ == '__main__':
-#   run()
-
+  # final with all test
+  # use dirty workaround
+  for i in range(mnist.test[])
 
 main()
