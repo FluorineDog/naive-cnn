@@ -59,26 +59,26 @@ def main(*argv):
           }
       ))
 
-  # final with all test
-  # use dirty workaround 
-  # since the complete test data 
-  # cannot fit into GPU
-  block_count = 10
-  total_acc = 0
-  total_loss = 0
-  for i in range(block_count):
-    tx, ty = mnist.test.next_batch(1000, shuffle=False)
-    acc, loss = sess.run(
-        [accuracy, loss], feed_dict={
-            x: tx,
-            y_: ty,
-            dropout_rate: 1.0
-        }
-    )
-    total_acc += acc
-    total_loss += loss
-  final_acc = total_acc / block_count 
-  final_loss = total_loss / block_count 
-  print("final test acc & loss: ", [final_acc, final_loss])
+    # final with all test
+    # use dirty workaround
+    # since the complete test data
+    # cannot fit into GPU
+    block_count = 10
+    total_acc = 0.0
+    total_loss = 0.0
+    for i in range(block_count):
+      tx, ty = mnist.test.next_batch(1000)
+      entry = sess.run(
+          [accuracy, loss], feed_dict={
+              x: tx,
+              y_: ty,
+              dropout_rate: 1.0
+          }
+      )
+      total_acc += entry[0]
+      total_loss += entry[1]
+    final_acc=total_acc / block_count
+    final_loss=total_loss / block_count
+    print("final test acc & loss: ", [final_acc, final_loss])
 
 main()

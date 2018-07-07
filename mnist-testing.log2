@@ -1,0 +1,95 @@
+Extracting /tmp/tensorflow/mnist/input_data/train-images-idx3-ubyte.gz
+Extracting /tmp/tensorflow/mnist/input_data/train-labels-idx1-ubyte.gz
+Extracting /tmp/tensorflow/mnist/input_data/t10k-images-idx3-ubyte.gz
+Extracting /tmp/tensorflow/mnist/input_data/t10k-labels-idx1-ubyte.gz
+step 0
+train acc & loss:  [1.0, 0.02259491]
+partial test acc & loss:  [0.981, 0.059929665]
+step 1
+train acc & loss:  [1.0, 0.018232906]
+partial test acc & loss:  [0.979, 0.05656054]
+step 2
+train acc & loss:  [1.0, 0.009393448]
+partial test acc & loss:  [0.982, 0.055389404]
+step 3
+train acc & loss:  [1.0, 0.01399141]
+partial test acc & loss:  [0.988, 0.03552766]
+step 4
+train acc & loss:  [1.0, 0.014441406]
+partial test acc & loss:  [0.983, 0.045039337]
+step 5
+train acc & loss:  [1.0, 0.003222973]
+partial test acc & loss:  [0.983, 0.03513936]
+step 6
+train acc & loss:  [1.0, 0.0031753005]
+partial test acc & loss:  [0.994, 0.025329703]
+step 7
+train acc & loss:  [1.0, 0.0022728296]
+partial test acc & loss:  [0.991, 0.026422277]
+step 8
+train acc & loss:  [1.0, 0.0016788382]
+partial test acc & loss:  [0.991, 0.028876025]
+step 9
+train acc & loss:  [1.0, 0.0046392465]
+partial test acc & loss:  [0.995, 0.014664143]
+step 10
+train acc & loss:  [1.0, 0.0034691305]
+partial test acc & loss:  [0.992, 0.0315944]
+step 11
+train acc & loss:  [1.0, 0.0016946916]
+partial test acc & loss:  [0.99, 0.02329458]
+step 12
+train acc & loss:  [1.0, 0.0012687659]
+partial test acc & loss:  [0.995, 0.01363351]
+step 13
+train acc & loss:  [1.0, 0.0016207725]
+partial test acc & loss:  [0.992, 0.016288431]
+step 14
+train acc & loss:  [1.0, 0.00059273135]
+partial test acc & loss:  [0.99, 0.032786958]
+step 15
+train acc & loss:  [1.0, 0.00053444447]
+partial test acc & loss:  [0.994, 0.023252422]
+step 16
+train acc & loss:  [1.0, 0.0003711779]
+partial test acc & loss:  [0.99, 0.019582415]
+step 17
+train acc & loss:  [1.0, 0.0005528307]
+partial test acc & loss:  [0.989, 0.03795491]
+step 18
+train acc & loss:  [1.0, 0.0003734127]
+partial test acc & loss:  [0.986, 0.04586947]
+step 19
+train acc & loss:  [1.0, 0.0010402083]
+partial test acc & loss:  [0.987, 0.048189547]
+step 20
+train acc & loss:  [1.0, 0.00031169283]
+partial test acc & loss:  [0.992, 0.030906012]
+step 21
+train acc & loss:  [1.0, 0.0007599726]
+partial test acc & loss:  [0.989, 0.028475586]
+step 22
+train acc & loss:  [1.0, 0.0010354419]
+partial test acc & loss:  [0.989, 0.033273492]
+step 23
+train acc & loss:  [1.0, 0.0005416164]
+partial test acc & loss:  [0.997, 0.016764378]
+step 24
+train acc & loss:  [1.0, 6.688187e-05]
+partial test acc & loss:  [0.987, 0.051127747]
+step 25
+train acc & loss:  [1.0, 0.00025563384]
+partial test acc & loss:  [0.991, 0.032283723]
+step 26
+train acc & loss:  [1.0, 9.684717e-05]
+partial test acc & loss:  [0.994, 0.017797222]
+step 27
+train acc & loss:  [1.0, 7.7071454e-05]
+partial test acc & loss:  [0.99, 0.042148188]
+step 28
+train acc & loss:  [1.0, 0.00037744574]
+partial test acc & loss:  [0.993, 0.023919111]
+step 29
+train acc & loss:  [1.0, 0.00022239416]
+partial test acc & loss:  [0.995, 0.016241375]
+final test acc & loss:  [0.9923999965190887, 0.028563581127673387]
