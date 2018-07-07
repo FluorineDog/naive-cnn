@@ -30,6 +30,8 @@ def main(*argv):
     y, loss, train_step = cnn.model(x, y_, dropout_rate)
 
   with tf.Session(graph=graph) as sess:
+    init = tf.global_variables_initializer()
+    sess.run(init)
     # Train
     for _ in range(100):
       for _ in range(100):
